@@ -11,9 +11,9 @@ public class ProveedorController implements ProveedorControllerAPI {
     private final ProveedorService proveedorService = new ProveedorService();
 
     @Override
-    public RespuestaHTTP<List<Proveedor>> obtenerTodos() {
+    public RespuestaHTTP<List<Proveedor>> getTodosProveedores() {
         try {
-            List<Proveedor> proveedores = proveedorService.obtenerTodos();
+            List<Proveedor> proveedores = proveedorService.getTodosProveedores();
             return new RespuestaHTTP<>(200, "Operación exitosa", proveedores);
         } catch (Exception e) {
             return new RespuestaHTTP<>(500, "Error al obtener los proveedores: " + e.getMessage());
@@ -21,7 +21,7 @@ public class ProveedorController implements ProveedorControllerAPI {
     }
 
     @Override
-    public RespuestaHTTP<Void> agregarProveedor(Proveedor proveedor) {
+    public RespuestaHTTP<> agregarProveedor(Proveedor proveedor) {
         try {
             proveedorService.agregarProveedor(proveedor);
             return new RespuestaHTTP<>(200, "Proveedor agregado con éxito");
@@ -31,7 +31,7 @@ public class ProveedorController implements ProveedorControllerAPI {
     }
 
     @Override
-    public RespuestaHTTP<Void> actualizarProveedor(Proveedor proveedor) {
+    public RespuestaHTTP<> actualizarProveedor(Proveedor proveedor) {
         try {
             proveedorService.actualizarProveedor(proveedor);
             return new RespuestaHTTP<>(200, "Proveedor actualizado con éxito");
@@ -41,7 +41,7 @@ public class ProveedorController implements ProveedorControllerAPI {
     }
 
     @Override
-    public RespuestaHTTP<Void> eliminarProveedor(int id) {
+    public RespuestaHTTP<> eliminarProveedor(int id) {
         try {
             proveedorService.eliminarProveedor(id);
             return new RespuestaHTTP<>(200, "Proveedor eliminado con éxito");

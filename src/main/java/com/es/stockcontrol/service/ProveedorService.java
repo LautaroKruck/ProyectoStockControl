@@ -9,8 +9,13 @@ public class ProveedorService {
     private final ProveedorRepository proveedorRepository = new ProveedorRepository();
 
     // Método para obtener todos los proveedores
-    public List<Proveedor> obtenerTodos() {
-        return proveedorRepository.obtenerTodos();
+    public List<Proveedor> getTodosProveedores() {
+        return proveedorRepository.getProveedor();
+    }
+
+    // Método para obtener todos los proveedores
+    public List<Proveedor> getTodosProveedores() {
+        return proveedorRepository.obtenerTodosPro();
     }
 
     // Método para agregar un nuevo proveedor
@@ -30,6 +35,7 @@ public class ProveedorService {
 
     public List<Proveedor> obtenerProveedoresPorProducto(String idProducto) {
         proveedorRepository.obtenerProveedoresPorProducto(idProducto);
+        return List.of();
     }
 }
 

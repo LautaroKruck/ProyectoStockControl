@@ -1,36 +1,92 @@
 package com.es.stockcontrol.repository;
 
 import com.es.stockcontrol.model.Proveedor;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
+import jakarta.persistence.Query;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ProveedorRepository {
 
-    // Método para obtener todos los proveedores
-    public List<Proveedor> obtenerTodos() {
-        // Lógica para conectarse a la base de datos y obtener los proveedores
-        return new ArrayList<>();
+    private EntityManagerFactory emf = Persistence.createEntityManagerFactory("StockControl");
+
+    public Proveedor getProveedor(int id) {
+        EntityManager em = emf.createEntityManager();
+
+        em.getTransaction().begin();
+
+        Proveedor proveedor = em.find(Proveedor.class, id);
+
+        em.getTransaction().commit(); // Aseguramos que la transacción se cierra
+        em.close();
+
+        return proveedor;
     }
 
-    // Método para agregar un proveedor
+    public List<Proveedor> getTodosProveedores() {
+        EntityManager em = emf.createEntityManager();
+
+        em.getTransaction().begin();
+
+        Query query = em.createQuery("SELECT p FROM Proveedor p", Proveedor.class);
+        List<Proveedor> listaProveedores = query.getResultList();
+
+        em.getTransaction().commit(); // Aseguramos que la transacción se cierra
+        em.close();
+
+        return listaProveedores;
+    }
+
     public void agregarProveedor(Proveedor proveedor) {
-        // Lógica para agregar el proveedor a la base de datos
+        EntityManager em = emf.createEntityManager();
+
+        em.getTransaction().begin();
+
+        em.persist(proveedor);
+
+        em.getTransaction().commit(); // Aseguramos que la transacción se cierra
+        em.close();
     }
 
-    // Método para actualizar un proveedor
     public void actualizarProveedor(Proveedor proveedor) {
-        // Lógica para actualizar los datos de un proveedor existente
+        EntityManager em = emf.createEntityManager();
+
+        em.getTransaction().begin();
+
+        em.merge(proveedor);
+
+        em.getTransaction().commit(); // Aseguramos que la transacción se cierra
+        em.close();
     }
 
-    // Método para eliminar un proveedor
     public void eliminarProveedor(int id) {
-        // Lógica para eliminar un proveedor de la base de datos
+        EntityManager em = emf.createEntityManager();
+
+        em.getTransaction().begin();
+
+        Proveedor proveedor = em.find(Proveedor.class, id);
+        if (proveedor != null) {
+            em.remove(proveedor);
+        }
+
+        em.getTransaction().commit(); // Aseguramos que la transacción se cierra
+        em.close();
     }
 
-    // Método para eliminar un proveedor
-    public void obtenerProveedoresPorProducto(String idProducto) {
-        // Lógica para eliminar un proveedor de la base de datos
+    public List<Proveedor> obtenerProveedoresPorProducto(String idProducto) {
+        EntityManager em = emf.createEntityManager();
+
+        em.getTransaction().begin();
+
+        Query query = em.createQuery("SELECT p FROM Proveedor p JOIN p.productos prod WHERE prod.id = :idProducto", Proveedor.class);
+        query.setParameter("idProducto", idProducto);
+        List<Proveedor> listaProveedores = query.getResultList();
+
+        em.getTransaction().commit(); // Aseguramos que la transacción se cierra
+        em.close();
+
+        return listaProveedores;
     }
 }
-

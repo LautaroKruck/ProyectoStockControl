@@ -8,7 +8,7 @@ import java.util.List;
 public interface ProveedorControllerAPI {
 
     // Obtener todos los proveedores
-    RespuestaHTTP<List<Proveedor>> obtenerTodos();
+    RespuestaHTTP<List<Proveedor>> getTodosProveedores();
 
     // Agregar un proveedor
     RespuestaHTTP<Void> agregarProveedor(Proveedor proveedor);
