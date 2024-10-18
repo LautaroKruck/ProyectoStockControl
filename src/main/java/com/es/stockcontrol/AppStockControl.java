@@ -21,7 +21,7 @@ public class AppStockControl {
          */
         Scanner scan = new Scanner(System.in);
         boolean login = false;  // Variable para comprobar si se hace un login correcto o no
-        User user = new User(); // Variable para almacenar al usuario que se ha logado
+        //User user = new User(); // Variable para almacenar al usuario que se ha logado
 
         /*
         1A PARTE. LOGIN
