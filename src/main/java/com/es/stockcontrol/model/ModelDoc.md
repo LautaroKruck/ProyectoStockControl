@@ -17,6 +17,7 @@ En esta base de datos tenemos 3 tablas:
 - precio_sin_iva: float -> not null
 - precio_con_iva: float -> not null
 - fecha_alta: Date -> not null
+- stock: Int
 - proveedor: Proveedor -> Relación de @ManyToOne
 
 3. Tabla Usuarios
