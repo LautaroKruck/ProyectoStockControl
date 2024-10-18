@@ -12,17 +12,19 @@ public class Producto {
     private Float precio_sin_iva;
     private Float precio_con_iva;
     private Date fecha_alta;
+    private Integer stock;
     private Proveedor proveedor;
 
-    public Producto(String id, String category, String nombre, String descripcion, Float precio_sin_iva, Date fecha_alta, Proveedor proveedor, Float precio_con_iva) {
+    public Producto(String id, String category, String nombre, String descripcion, Float precio_sin_iva, Float precio_con_iva, Date fecha_alta, Integer stock, Proveedor proveedor) {
         this.id = id;
         this.category = category;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.precio_sin_iva = precio_sin_iva;
-        this.fecha_alta = fecha_alta;
-        this.proveedor = proveedor;
         this.precio_con_iva = precio_con_iva;
+        this.fecha_alta = fecha_alta;
+        this.stock = stock;
+        this.proveedor = proveedor;
     }
 
     public String getId() {
@@ -81,6 +83,14 @@ public class Producto {
         this.fecha_alta = fecha_alta;
     }
 
+    public Integer getStock() {
+        return stock;
+    }
+
+    public void setStock(Integer stock) {
+        this.stock = stock;
+    }
+
     public Proveedor getProveedor() {
         return proveedor;
     }
@@ -94,12 +104,12 @@ public class Producto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Producto producto = (Producto) o;
-        return Objects.equals(id, producto.id) && Objects.equals(category, producto.category) && Objects.equals(nombre, producto.nombre) && Objects.equals(descripcion, producto.descripcion) && Objects.equals(precio_sin_iva, producto.precio_sin_iva) && Objects.equals(precio_con_iva, producto.precio_con_iva) && Objects.equals(fecha_alta, producto.fecha_alta) && Objects.equals(proveedor, producto.proveedor);
+        return Objects.equals(id, producto.id) && Objects.equals(category, producto.category) && Objects.equals(nombre, producto.nombre) && Objects.equals(descripcion, producto.descripcion) && Objects.equals(precio_sin_iva, producto.precio_sin_iva) && Objects.equals(precio_con_iva, producto.precio_con_iva) && Objects.equals(fecha_alta, producto.fecha_alta) && Objects.equals(stock, producto.stock) && Objects.equals(proveedor, producto.proveedor);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, category, nombre, descripcion, precio_sin_iva, precio_con_iva, fecha_alta, proveedor);
+        return Objects.hash(id, category, nombre, descripcion, precio_sin_iva, precio_con_iva, fecha_alta, stock, proveedor);
     }
 
     @Override
@@ -112,6 +122,7 @@ public class Producto {
                 ", precio_sin_iva=" + precio_sin_iva +
                 ", precio_con_iva=" + precio_con_iva +
                 ", fecha_alta=" + fecha_alta +
+                ", stock=" + stock +
                 ", proveedor=" + proveedor +
                 '}';
     }
