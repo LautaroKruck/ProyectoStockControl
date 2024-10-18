@@ -27,5 +27,10 @@ public class ProveedorRepository {
     public void eliminarProveedor(int id) {
         // Lógica para eliminar un proveedor de la base de datos
     }
+
+    // Método para eliminar un proveedor
+    public void obtenerProveedoresPorProducto(String idProducto) {
+        // Lógica para eliminar un proveedor de la base de datos
+    }
 }
 

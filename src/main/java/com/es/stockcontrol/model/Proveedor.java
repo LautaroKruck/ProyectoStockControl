@@ -1,42 +1,25 @@
 package com.es.stockcontrol.model;
-//id: Long -> AutoGenerado. PrimaryKey
-//nombre: String -> único, longitud 50, not null
-//direccion: String -> not null
-//productos: List -> Relacion de @OneToMany
 
-import jakarta.persistence.*;
-
-import java.util.List;
-
-
-@Entity
-@Table(name = "proveedor")
 public class Proveedor {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(name = "nombre", unique = true,length = 50, nullable = false)
+    private String id;
     private String nombre;
-
-    @Column(name = "direccion", length = 50, nullable = false)
     private String direccion;
 
-    @OneToMany(mappedBy = "proveedor")
-    private List<Producto> productos;
+    public Proveedor() {
+    }
 
-    public Proveedor(String nombre, String direccion, List<Producto> productos) {
+    public Proveedor(String id, String nombre, String direccion) {
+        this.id = id;
         this.nombre = nombre;
         this.direccion = direccion;
-        this.productos = productos;
     }
 
-    public String getDireccion() {
-        return direccion;
+    public String getId() {
+        return id;
     }
 
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -47,29 +30,20 @@ public class Proveedor {
         this.nombre = nombre;
     }
 
-    public Long getId() {
-        return id;
+    public String getDireccion() {
+        return direccion;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public List<Producto> getProductos() {
-        return productos;
-    }
-
-    public void setProductos(List<Producto> productos) {
-        this.productos = productos;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
     @Override
     public String toString() {
         return "Proveedor{" +
-                "id=" + id +
+                "id='" + id + '\'' +
                 ", nombre='" + nombre + '\'' +
                 ", direccion='" + direccion + '\'' +
-                ", productos=" + productos +
                 '}';
     }
 }
