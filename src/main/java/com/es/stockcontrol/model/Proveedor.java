@@ -1,9 +1,26 @@
 package com.es.stockcontrol.model;
 
+import jakarta.persistence.*;
+import java.util.List;
+
+@Entity
+@Table(name = "proveedores")
 public class Proveedor {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false, updatable = false)
     private Long id;
+
+    @Column(name = "nombre", nullable = false, length = 50, unique = true)
     private String nombre;
+
+    @Column(name = "direccion", nullable = false)
     private String direccion;
+
+    // Relación OneToMany con Producto
+    @OneToMany(mappedBy = "proveedor", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Producto> productos;
 
     public Proveedor() {
     }
@@ -13,6 +30,7 @@ public class Proveedor {
         this.direccion = direccion;
     }
 
+    // Getters y Setters
     public Long getId() {
         return id;
     }
@@ -37,12 +55,21 @@ public class Proveedor {
         this.direccion = direccion;
     }
 
+    public List<Producto> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(List<Producto> productos) {
+        this.productos = productos;
+    }
+
     @Override
     public String toString() {
         return "Proveedor{" +
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", direccion='" + direccion + '\'' +
+                ", productos=" + productos +
                 '}';
     }
 }
