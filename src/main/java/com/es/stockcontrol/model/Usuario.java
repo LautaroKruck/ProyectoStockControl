@@ -7,22 +7,22 @@ import jakarta.persistence.*;
 public class Usuario {
     @Id
     @Column(name = "nombre", nullable = false)
-    private String nombre_usuario;
+    private String nombreUsuario;
 
     @Column(name = "password", length = 20, nullable = false)
     private String password;
 
-    public Usuario(String nombre_usuario, String password){
-        this.nombre_usuario = nombre_usuario;
+    public Usuario(String nombreUsuario, String password){
+        this.nombreUsuario = nombreUsuario;
         this.password = password;
     }
 
-    public String getNombre_usuario() {
-        return nombre_usuario;
+    public String getNombreUsuario() {
+        return nombreUsuario;
     }
 
-    public void setNombre_usuario(String nombre_usuario) {
-        this.nombre_usuario = nombre_usuario;
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
     }
 
     public String getPassword() {
