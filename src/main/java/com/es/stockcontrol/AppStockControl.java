@@ -58,6 +58,8 @@ public class AppStockControl {
 
                 RespuestaHTTP<User> respuestaHTTP = pController.login(userInput, passwordInput);
 
+                User user;
+
                 try {
                     if (respuestaHTTP.getCodigo() == 200) {
                         if (respuestaHTTP.getObj() != null) {
