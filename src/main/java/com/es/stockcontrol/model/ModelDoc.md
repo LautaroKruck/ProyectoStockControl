@@ -11,7 +11,7 @@ En esta base de datos tenemos 3 tablas:
 
 2. Tabla Productos
 - id: String -> PrimaryKey -> Lo generamos nosotros
-- categoria: String -> not null, longigud 10
+- categoria: String -> not null, longigud 50
 - nombre: String -> longitud 50, not null
 - descripcion: String
 - precio_sin_iva: float -> not null

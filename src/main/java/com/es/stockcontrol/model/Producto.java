@@ -1,18 +1,40 @@
 package com.es.stockcontrol.model;
 
+import jakarta.persistence.*;
+
 import java.util.Date;
 import java.util.Objects;
 
+@Entity
+@Table(name = "producto")
 public class Producto {
 
+    @Id
     private String id;
+
+    @Column(name = "category", nullable = false, length = 50)
     private String category;
+
+    @Column(name = "nombre", nullable = false, length = 50)
     private String nombre;
+
+    @Column(name = "descripcion")
     private String descripcion;
+
+    @Column(name = "precio_sin_iva", nullable = false)
     private Float precio_sin_iva;
+
+    @Column(name = "precio_con_iva", nullable = false)
     private Float precio_con_iva;
+
+    @Column(name = "fecha_alta", nullable = false)
     private Date fecha_alta;
+
+    @Column(name = "stock")
     private Integer stock;
+
+    @ManyToOne
+    @JoinColumn (name = "id_compra", nullable = false)
     private Proveedor proveedor;
 
     public Producto(String id, String category, String nombre, String descripcion, Float precio_sin_iva, Float precio_con_iva, Date fecha_alta, Integer stock, Proveedor proveedor) {
