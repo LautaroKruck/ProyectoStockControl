@@ -6,7 +6,9 @@ import jakarta.persistence.*;
 @Table(name = "user")
 public class User {
     @Id
+    @Column(name = "nombre", nullable = false)
     private String nombre_usuario;
+
     @Column(name = "password", length = 20, nullable = false)
     private String password;
 
