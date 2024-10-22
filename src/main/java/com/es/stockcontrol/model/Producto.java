@@ -34,7 +34,7 @@ public class Producto {
     private Integer stock;
 
     @ManyToOne
-    @JoinColumn (name = "id_compra", nullable = false)
+    @JoinColumn (name = "proveedor", nullable = false)
     private Proveedor proveedor;
 
     public Producto(String id, String category, String nombre, String descripcion, Float precio_sin_iva, Float precio_con_iva, Date fecha_alta, Integer stock, Proveedor proveedor) {
