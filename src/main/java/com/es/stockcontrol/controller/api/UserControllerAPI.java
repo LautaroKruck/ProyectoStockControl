@@ -1,7 +1,7 @@
 package com.es.stockcontrol.controller.api;
 
 import com.es.stockcontrol.model.RespuestaHTTP;
-import com.es.stockcontrol.model.User;
+import com.es.stockcontrol.model.Usuario;
 
 public interface UserControllerAPI {
 
@@ -12,5 +12,5 @@ public interface UserControllerAPI {
      * @param passInput String. Parametro con la pass introducida por teclado
      * @return RespuestaHTTP<User>
      */
-    RespuestaHTTP<User> login(String userInput, String passInput);
+    RespuestaHTTP<Usuario> login(String userInput, String passInput);
 }

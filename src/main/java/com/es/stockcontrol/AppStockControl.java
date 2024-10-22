@@ -6,7 +6,7 @@ import com.es.stockcontrol.controller.impl.UserController;
 import com.es.stockcontrol.model.Producto;
 import com.es.stockcontrol.model.Proveedor;
 import com.es.stockcontrol.model.RespuestaHTTP;
-import com.es.stockcontrol.model.User;
+import com.es.stockcontrol.model.Usuario;
 
 import java.util.List;
 import java.util.Scanner;
@@ -56,9 +56,9 @@ public class AppStockControl {
 
                 UserController pController = new UserController();
 
-                RespuestaHTTP<User> respuestaHTTP = pController.login(userInput, passwordInput);
+                RespuestaHTTP<Usuario> respuestaHTTP = pController.login(userInput, passwordInput);
 
-                User user;
+                Usuario user;
 
                 try {
                     if (respuestaHTTP.getCodigo() == 200) {
