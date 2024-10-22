@@ -1,7 +1,7 @@
 package com.es.stockcontrol.model;
 
 public class Proveedor {
-    private String id;
+    private Long id;
     private String nombre;
     private String direccion;
 
@@ -9,16 +9,15 @@ public class Proveedor {
     }
 
     public Proveedor(String id, String nombre, String direccion) {
-        this.id = id;
         this.nombre = nombre;
         this.direccion = direccion;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -41,7 +40,7 @@ public class Proveedor {
     @Override
     public String toString() {
         return "Proveedor{" +
-                "id='" + id + '\'' +
+                "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", direccion='" + direccion + '\'' +
                 '}';

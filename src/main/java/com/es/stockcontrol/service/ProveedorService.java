@@ -10,12 +10,7 @@ public class ProveedorService {
 
     // Método para obtener todos los proveedores
     public List<Proveedor> getTodosProveedores() {
-        return proveedorRepository.getProveedor();
-    }
-
-    // Método para obtener todos los proveedores
-    public List<Proveedor> getTodosProveedores() {
-        return proveedorRepository.obtenerTodosPro();
+        return proveedorRepository.getTodosProveedores();
     }
 
     // Método para agregar un nuevo proveedor

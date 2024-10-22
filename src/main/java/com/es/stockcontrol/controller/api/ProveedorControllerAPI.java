@@ -11,10 +11,10 @@ public interface ProveedorControllerAPI {
     RespuestaHTTP<List<Proveedor>> getTodosProveedores();
 
     // Agregar un proveedor
-    RespuestaHTTP<Void> agregarProveedor(Proveedor proveedor);
+    RespuestaHTTP<Proveedor> agregarProveedor(Proveedor proveedor);  // Cambiado de Void a Proveedor
 
     // Actualizar un proveedor
-    RespuestaHTTP<Void> actualizarProveedor(Proveedor proveedor);
+    RespuestaHTTP<Proveedor> actualizarProveedor(Proveedor proveedor);  // Cambiado de Void a Proveedor
 
     // Eliminar un proveedor por su ID
     RespuestaHTTP<Void> eliminarProveedor(int id);
