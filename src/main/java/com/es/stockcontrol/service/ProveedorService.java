@@ -2,36 +2,79 @@ package com.es.stockcontrol.service;
 
 import com.es.stockcontrol.model.Proveedor;
 import com.es.stockcontrol.repository.ProveedorRepository;
+
 import java.util.List;
 
-
 public class ProveedorService {
-    private final ProveedorRepository proveedorRepository = new ProveedorRepository();
 
-    // Método para obtener todos los proveedores
+    private final ProveedorRepository proveedorRepository;
+
+    public ProveedorService() {
+        this.proveedorRepository = new ProveedorRepository();
+    }
+
+    // Obtener todos los proveedores
     public List<Proveedor> getTodosProveedores() {
         return proveedorRepository.getTodosProveedores();
     }
 
-    // Método para agregar un nuevo proveedor
-    public void agregarProveedor(Proveedor proveedor) {
+    // Agregar un nuevo proveedor
+    public Proveedor agregarProveedor(Proveedor proveedor) {
+
+        // Validación del nombre y la dirección del proveedor
+
+        if (proveedor.getNombre().length() > 50 || proveedor.getNombre().isEmpty()) {
+            return null;
+        }
+
+        if (proveedor.getDireccion().isEmpty()) {
+            return null;
+        }
+
+        // Persistir el proveedor en la base de datos
         proveedorRepository.agregarProveedor(proveedor);
+        return proveedor;
     }
 
-    // Método para actualizar un proveedor existente
-    public void actualizarProveedor(Proveedor proveedor) {
+    // Actualizar un proveedor existente
+    public Proveedor actualizarProveedor(Proveedor proveedor) {
+        // Validación del nombre y la dirección
+        if (proveedor.getNombre().length() > 50 || proveedor.getNombre().isEmpty()) {
+            return null;
+        }
+
+        if (proveedor.getDireccion().isEmpty()) {
+            return null;
+        }
+
+        // Actualizar el proveedor en la base de datos
         proveedorRepository.actualizarProveedor(proveedor);
+        return proveedor;
     }
 
-    // Método para eliminar un proveedor por su ID
-    public void eliminarProveedor(int id) {
-        proveedorRepository.eliminarProveedor(id);
+    // Eliminar un proveedor por su ID
+    public boolean eliminarProveedor(int id) {
+        Proveedor proveedor = proveedorRepository.getProveedor(id);
+
+        if (proveedor != null) {
+            proveedorRepository.eliminarProveedor(id);
+            return true;
+        }
+
+        return false;
     }
 
+    // Obtener los proveedores por producto
     public List<Proveedor> obtenerProveedoresPorProducto(String idProducto) {
-        proveedorRepository.obtenerProveedoresPorProducto(idProducto);
-        return List.of();
+        if (idProducto == null || idProducto.isEmpty()) {
+            return null;
+        }
+
+        return proveedorRepository.obtenerProveedoresPorProducto(idProducto);
+    }
+
+    // Obtener un proveedor por su ID
+    public Proveedor getProveedor(int id) {
+        return proveedorRepository.getProveedor(id);
     }
 }
-
-
