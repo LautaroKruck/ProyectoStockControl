@@ -13,7 +13,7 @@
 
         <properties>
             <!-- Qué BDD usar -->
-            <property name="javax.persistence.jdbc.driver" value="proyectostock" />
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
             <!-- Dónde está la BASE DE DATOS --> <!-- jdbc:mysql://ip:puerto/nombre_base_de_datos -->
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/proyectostock" />
             <!-- Credenciales -->
@@ -24,7 +24,7 @@
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
             <property name="hibernate.show_sql" value="true" />
             <!-- ¿Qué pasa cuando inicio la aplicación? -->
-            <property name="hibernate.hbm2ddl.auto" value="create"/>
+            <property name="hibernate.hbm2ddl.auto" value="validate"/>
         </properties>
 
     </persistence-unit>

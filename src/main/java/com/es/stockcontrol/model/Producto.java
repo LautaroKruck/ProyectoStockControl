@@ -50,6 +50,12 @@ public class Producto {
         this.proveedor = proveedor;
     }
 
+    public Producto() {
+
+
+
+    }
+
     public String getId() {
         return id;
     }
