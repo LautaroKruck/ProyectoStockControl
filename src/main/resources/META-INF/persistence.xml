@@ -4,7 +4,7 @@
              version="2.0">
 
     <!-- Unidad de Persistencia -->
-    <persistence-unit name="" transaction-type="RESOURCE_LOCAL">
+    <persistence-unit name="StockControl" transaction-type="RESOURCE_LOCAL">
 
         <!-- Qué clases queremos mapear -->
         <class>com.es.stockcontrol.model.Producto</class>
@@ -24,7 +24,7 @@
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
             <property name="hibernate.show_sql" value="true" />
             <!-- ¿Qué pasa cuando inicio la aplicación? -->
-            <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
         </properties>
 
     </persistence-unit>
