@@ -2,7 +2,7 @@ package com.es.stockcontrol;
 
 import com.es.stockcontrol.controller.impl.ProductoController;
 import com.es.stockcontrol.controller.impl.ProveedorController;
-import com.es.stockcontrol.controller.impl.UserController;
+import com.es.stockcontrol.controller.impl.UsuarioController;
 import com.es.stockcontrol.model.Producto;
 import com.es.stockcontrol.model.Proveedor;
 import com.es.stockcontrol.model.RespuestaHTTP;
@@ -54,7 +54,7 @@ public class AppStockControl {
                 System.out.print("password: ");
                 String passwordInput = scan.nextLine();
 
-                UserController pController = new UserController();
+                UsuarioController pController = new UsuarioController();
 
                 RespuestaHTTP<Usuario> respuestaHTTP = pController.login(userInput, passwordInput);
 
