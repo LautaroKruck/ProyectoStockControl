@@ -21,7 +21,7 @@ public class AppStockControl {
          */
         Scanner scan = new Scanner(System.in);
         boolean login = false;  // Variable para comprobar si se hace un login correcto o no
-        //User user = new User(); // Variable para almacenar al usuario que se ha logado
+        Usuario user = null; // Variable para almacenar al usuario que se ha logado
 
         /*
         1A PARTE. LOGIN
@@ -44,7 +44,7 @@ public class AppStockControl {
                                     
                     Introduzca su usuario y contrasena para continuar (0 para salir)
                     """);
-            System.out.print("user: ");
+            System.out.print("usuario: ");
             String userInput = scan.nextLine();
 
             if ("0".equalsIgnoreCase(userInput)) {
@@ -57,8 +57,6 @@ public class AppStockControl {
                 UsuarioController pController = new UsuarioController();
 
                 RespuestaHTTP<Usuario> respuestaHTTP = pController.login(userInput, passwordInput);
-
-                Usuario user;
 
                 try {
                     if (respuestaHTTP.getCodigo() == 200) {
