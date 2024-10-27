@@ -23,6 +23,9 @@ public class Proveedor {
     private List<Producto> productos;
 
     public Proveedor() {
+
+
+
     }
 
     public Proveedor(String nombre, String direccion) {
