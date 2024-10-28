@@ -103,7 +103,9 @@ public class ProductoService {
 
         }
 
-        Proveedor pr = new Proveedor(nombreProveedor, direccionProveedor);
+        ProveedorService proveedorService = new ProveedorService();
+
+        Proveedor pr = proveedorService.agregarProveedor(new Proveedor(nombreProveedor, direccionProveedor));
 
         Producto p = new Producto(idProducto, categoriaProducto, nombreProducto, descripcionProducto, precioSinIvaF, precioConIva, fechaAlta, stockI, pr);
 
