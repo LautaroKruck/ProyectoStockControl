@@ -7,14 +7,39 @@ import com.es.stockcontrol.model.Producto;
 import com.es.stockcontrol.model.Proveedor;
 import com.es.stockcontrol.model.RespuestaHTTP;
 import com.es.stockcontrol.model.Usuario;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
 
 import java.util.List;
 import java.util.Scanner;
 
 public class AppStockControl {
 
+    // PARA UTILIZAR
+    // 1º CREAR BDD 'proyectostock' EN MYSQL
+    // 2º CREAR TABLA 'user' E INSERTAR USUARIO PARA UTILIZAR
+    // 3º UTILIZAR PROGRAMA
+
+    // NOTAS
+    // OPCION 1: INTRODUCE EL PRODUCTO CORRECTAMENTE (AUNQUE SALTE UN ERROR), SIEMPRE QUE NO SEA UN PROVEEDOR YA CREADO (SE CREA NUEVO PROVEEDOR AL INSERTAR PRODUCTO, YA QUE AL NO DAR ID DEL PROVEEDOR SE DA POR ENTENDIDO QUE ES PARA CREAR)
+    // OPCION 2: FUNCIONA CORRECTAMENTE
+    // OPCION 3: MODIFICA EL NOMBRE DEL PRODUCTO CORRECTAMENTE (AUNQUE SALTE UN ERROR)
+    // OPCION 4: MODIFICA EL STOCK DEL PRODUCTO CORRECTAMENTE (AUNQUE SALTE UN ERROR)
+    // OPCION 5: DA ERROR
+    // OPCION 6: SALTA ERROR, PERO EL PROGRAMA SIGUE FUNCIONANDO
+    // OPCION 7: SALTA ERROR, PERO EL PROGRAMA SIGUE FUNCIONANDO
+    // OPCION 8: SALTA ERROR, PERO EL PROGRAMA SIGUE FUNCIONANDO
+    // OPCION 9: SALTA ERROR, PERO EL PROGRAMA SIGUE FUNCIONANDO
+
 
     public static void main(String[] args) {
+
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("StockControl");
+
+        EntityManager em = emf.createEntityManager();
+
+        em.getTransaction().begin();
 
         /*
         Declaro aquí variables que voy a usar durante la ejecución del main
