@@ -20,12 +20,6 @@ public class Usuario {
         this.password = password;
     }
 
-    public Usuario() {
-
-
-
-    }
-
     public String getNombreUsuario() {
         return nombreUsuario;
     }
