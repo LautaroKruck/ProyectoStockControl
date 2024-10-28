@@ -36,33 +36,6 @@ public class ProveedorService {
         return proveedor;
     }
 
-    // Actualizar un proveedor existente
-    public Proveedor actualizarProveedor(Proveedor proveedor) {
-        // Validación del nombre y la dirección
-        if (proveedor.getNombre().length() > 50 || proveedor.getNombre().isEmpty()) {
-            return null;
-        }
-
-        if (proveedor.getDireccion().isEmpty()) {
-            return null;
-        }
-
-        // Actualizar el proveedor en la base de datos
-        proveedorRepository.actualizarProveedor(proveedor);
-        return proveedor;
-    }
-
-    // Eliminar un proveedor por su ID
-    public boolean eliminarProveedor(int id) {
-        Proveedor proveedor = proveedorRepository.getProveedor(id);
-
-        if (proveedor != null) {
-            proveedorRepository.eliminarProveedor(id);
-            return true;
-        }
-
-        return false;
-    }
 
     // Obtener los proveedores por producto
     public List<Proveedor> obtenerProveedoresPorProducto(String idProducto) {

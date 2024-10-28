@@ -24,8 +24,6 @@ public class Proveedor {
 
     public Proveedor() {
 
-
-
     }
 
     public Proveedor(String nombre, String direccion) {

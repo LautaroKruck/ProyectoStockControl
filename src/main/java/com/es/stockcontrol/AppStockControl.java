@@ -40,6 +40,15 @@ public class AppStockControl {
         EntityManager em = emf.createEntityManager();
 
         em.getTransaction().begin();
+        long cuentaUsuarios = em.createQuery("SELECT COUNT(u) FROM Usuario u", Long.class).getSingleResult();
+
+        if (cuentaUsuarios == 0) {
+            Usuario usuarioPorDefecto = new Usuario("usuario", "usuario");
+            em.persist(usuarioPorDefecto);
+            System.out.println("Usuario por defecto creado: usuario/usuario");
+        }
+
+        em.getTransaction().commit();
 
         /*
         Declaro aquí variables que voy a usar durante la ejecución del main
@@ -70,14 +79,14 @@ public class AppStockControl {
                     Introduzca su usuario y contrasena para continuar (0 para salir)
                     """);
             System.out.print("usuario: ");
-            String userInput = scan.nextLine();
+            String userInput = scan.nextLine().trim();
 
             if ("0".equalsIgnoreCase(userInput)) {
                 System.out.println("Saliendo...");
                 System.exit(0);
             } else {
                 System.out.print("password: ");
-                String passwordInput = scan.nextLine();
+                String passwordInput = scan.nextLine().trim();
 
                 UsuarioController pController = new UsuarioController();
 

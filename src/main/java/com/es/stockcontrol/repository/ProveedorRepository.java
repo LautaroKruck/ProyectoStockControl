@@ -50,31 +50,6 @@ public class ProveedorRepository {
         em.close();
     }
 
-    public void actualizarProveedor(Proveedor proveedor) {
-        EntityManager em = emf.createEntityManager();
-
-        em.getTransaction().begin();
-
-        em.merge(proveedor);
-
-        em.getTransaction().commit(); // Aseguramos que la transacción se cierra
-        em.close();
-    }
-
-    public void eliminarProveedor(int id) {
-        EntityManager em = emf.createEntityManager();
-
-        em.getTransaction().begin();
-
-        Proveedor proveedor = em.find(Proveedor.class, id);
-        if (proveedor != null) {
-            em.remove(proveedor);
-        }
-
-        em.getTransaction().commit(); // Aseguramos que la transacción se cierra
-        em.close();
-    }
-
     public List<Proveedor> obtenerProveedoresPorProducto(String idProducto) {
         EntityManager em = emf.createEntityManager();
 
