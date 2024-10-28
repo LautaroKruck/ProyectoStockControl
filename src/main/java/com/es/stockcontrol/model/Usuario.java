@@ -12,15 +12,12 @@ public class Usuario {
     @Column(name = "password", length = 20, nullable = false)
     private String password;
 
+    public Usuario() {
+    }
+
     public Usuario(String nombreUsuario, String password){
         this.nombreUsuario = nombreUsuario;
         this.password = password;
-    }
-
-    public Usuario() {
-
-
-
     }
 
     public String getNombreUsuario() {
